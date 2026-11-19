@@ -1,0 +1,1565 @@
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+body{
+ background:#000;
+ color:white;
+ font-family:'Quicksand',sans-serif;
+ min-height:100vh;
+}
+
+/* HALAMAN */
+
+.page{
+ display:none;
+ min-height:100vh;
+ padding:25px 12px;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+}
+
+.page.active{
+ display:flex;
+}
+
+/* HOME */
+
+#home{
+ background:radial-gradient(ellipse at center,#242424 0%,#090909 65%,#000 100%);
+ position:relative;
+ overflow:hidden;
+}
+
+.home-content{
+ width:min(850px,100%);
+ padding:30px 15px;
+ position:relative;
+ z-index:2;
+}
+
+.home-top-heart,
+.home-bottom-heart{
+ color:#ddd;
+ font-size:30px;
+ margin:12px;
+ text-shadow:0 0 12px white;
+}
+
+.home-subtitle{
+ color:#c5c5c5;
+ letter-spacing:6px;
+ font-size:13px;
+ margin-top:15px;
+}
+
+.birthday-title{
+ font-family:'Great Vibes',cursive;
+ font-size:clamp(55px,9vw,100px);
+ font-weight:400;
+ color:#eee;
+ text-shadow:0 0 15px #aaa;
+ margin:15px 0;
+}
+
+.home-message{
+ color:#bbb;
+ letter-spacing:2px;
+ font-size:14px;
+ margin-bottom:65px;
+}
+
+/* AMPLOP */
+
+.envelope{
+ width:min(400px,75vw);
+ height:230px;
+ position:relative;
+ margin:0 auto;
+ cursor:pointer;
+ filter:drop-shadow(0 12px 18px #aaa5);
+ perspective:900px;
+}
+
+.envelope-back{
+ position:absolute;
+ inset:0;
+ background:linear-gradient(135deg,#555,#111 45%,#292929);
+ border:1px solid #aaa;
+ z-index:1;
+}
+
+.letter-paper{
+ position:absolute;
+ width:86%;
+ height:185px;
+ left:7%;
+ top:-20px;
+ background:linear-gradient(135deg,#fff,#d5d5d5);
+ color:#222;
+ border-radius:3px;
+ z-index:2;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ font-size:55px;
+ box-shadow:0 0 12px #fff5;
+ transition:transform 1s ease;
+}
+
+.envelope-flap{
+ position:absolute;
+ inset:0;
+ z-index:4;
+ background:linear-gradient(135deg,#777,#222 75%);
+ clip-path:polygon(0 0,100% 0,50% 57%);
+ transform-origin:top;
+ transition:transform .8s ease;
+}
+
+.envelope-front{
+ position:absolute;
+ inset:0;
+ z-index:3;
+ background:linear-gradient(145deg,#292929,#050505);
+ clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);
+ border-bottom:2px solid silver;
+}
+
+.envelope-ribbon{
+ position:absolute;
+ z-index:5;
+ top:48%;
+ left:50%;
+ transform:translate(-50%,-50%);
+ font-size:65px;
+ filter:grayscale(1);
+ text-shadow:0 0 10px #fff;
+}
+
+.envelope-heart{
+ position:absolute;
+ z-index:6;
+ bottom:20px;
+ left:50%;
+ transform:translateX(-50%);
+ color:#ddd;
+ font-size:30px;
+ text-shadow:0 0 10px white;
+}
+
+.envelope.open .envelope-flap{
+ transform:rotateX(180deg);
+ z-index:0;
+}
+
+.envelope.open .letter-paper{
+ transform:translateY(-110px);
+}
+
+.open-button{
+ margin-top:60px;
+ padding:14px 45px;
+ border:2px solid #ccc;
+ border-radius:40px;
+ background:transparent;
+ color:white;
+ font-family:inherit;
+ font-size:16px;
+ letter-spacing:3px;
+ cursor:pointer;
+ box-shadow:0 0 12px #aaa7;
+ transition:.3s;
+}
+
+.open-button:hover{
+ background:#ddd;
+ color:#111;
+ box-shadow:0 0 25px silver;
+}
+
+.home-decoration{
+ position:absolute;
+ color:#ddd;
+ text-shadow:0 0 12px white;
+ animation:homeFloat 3s ease-in-out infinite;
+ pointer-events:none;
+}
+
+.heart1{top:15%;left:12%;font-size:35px}
+.heart2{top:40%;right:13%;font-size:40px}
+.heart3{bottom:18%;left:18%;font-size:28px}
+.heart4{bottom:15%;right:12%;font-size:35px}
+
+.ribbon-decoration{
+ position:absolute;
+ color:#aaa;
+ font-size:65px;
+ opacity:.8;
+ pointer-events:none;
+}
+
+.ribbon-left{
+ top:2%;
+ left:2%;
+ transform:rotate(-20deg);
+}
+
+.ribbon-right{
+ bottom:2%;
+ right:2%;
+ transform:rotate(20deg);
+}
+
+@keyframes homeFloat{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-15px)}
+}
+
+/* CARD MENU */
+
+.card{
+ width:min(850px,100%);
+ min-height:430px;
+ background:linear-gradient(145deg,#252525,#050505,#171717);
+ border:1px solid #555;
+ border-radius:12px;
+ padding:55px 22px;
+ position:relative;
+ overflow:hidden;
+ box-shadow:0 12px 35px #0008;
+}
+
+h2{
+ font-size:clamp(27px,5vw,42px);
+ margin-bottom:20px;
+}
+
+.small{
+ font-size:11px;
+ letter-spacing:3px;
+ color:#bbb;
+ margin-bottom:15px;
+}
+
+.back{
+ position:absolute;
+ top:15px;
+ left:15px;
+ background:transparent;
+ border:1px solid #aaa;
+ color:white;
+ padding:8px 13px;
+ cursor:pointer;
+ border-radius:5px;
+ font-family:inherit;
+ z-index:10;
+}
+
+/* MENU */
+
+.gifts{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+ max-width:650px;
+ margin:35px auto;
+}
+
+.gift{
+ background:#181818;
+ border:1px solid #777;
+ padding:25px 10px;
+ border-radius:12px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.gift:hover{
+ background:#333;
+ transform:translateY(-7px);
+}
+
+.gift .emoji{
+ display:block;
+ font-size:55px;
+ margin-bottom:15px;
+}
+
+.gift p{
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+/* LETTER */
+
+.birthday-card{
+ width:min(850px,100%);
+ min-height:430px;
+ background:linear-gradient(145deg,#252525,#050505,#171717);
+ padding:75px 25px 34px;
+ border:1px solid #555;
+ border-radius:12px;
+ position:relative;
+ overflow:hidden;
+}
+
+.icing{
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:17px;
+ background:linear-gradient(90deg,#888,#fff,#aaa);
+}
+
+.drip{
+ position:absolute;
+ top:0;
+ width:7px;
+ background:#c0c0c0;
+ border-radius:0 0 8px 8px;
+}
+
+.drip:nth-child(2){left:4%;height:28px}
+.drip:nth-child(3){left:11%;height:18px}
+.drip:nth-child(4){left:18%;height:25px}
+.drip:nth-child(5){left:27%;height:17px}
+.drip:nth-child(6){left:35%;height:29px}
+.drip:nth-child(7){left:45%;height:19px}
+.drip:nth-child(8){left:54%;height:26px}
+.drip:nth-child(9){left:64%;height:17px}
+.drip:nth-child(10){left:73%;height:29px}
+.drip:nth-child(11){left:83%;height:20px}
+.drip:nth-child(12){left:93%;height:27px}
+
+.main-content{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:8px;
+}
+
+.photo-wrap{
+ position:relative;
+ width:230px;
+ height:230px;
+ flex-shrink:0;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+.photo-wrap img{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ filter:drop-shadow(0 5px 8px #000);
+}
+
+.right-content{
+ text-align:center;
+}
+
+.heading{
+ font-size:clamp(30px,5vw,48px);
+ letter-spacing:3px;
+ line-height:1.3;
+ font-weight:700;
+ color:#fff;
+ text-shadow:0 0 12px #aaa;
+}
+
+.balloon-group{
+ position:relative;
+ width:65px;
+ height:205px;
+ flex-shrink:0;
+}
+
+.balloon-group span{
+ position:absolute;
+ display:block;
+ animation:float 3s ease-in-out infinite;
+}
+
+.balloon-group .b1{
+ font-size:42px;
+ top:-8px;
+ left:18px;
+}
+
+.balloon-group .b2{
+ font-size:31px;
+ top:48px;
+ left:0;
+ animation-delay:.5s;
+}
+
+.balloon-group .b3{
+ font-size:37px;
+ top:95px;
+ left:30px;
+ animation-delay:1s;
+}
+
+.balloon-group .b4{
+ font-size:28px;
+ top:140px;
+ left:5px;
+ animation-delay:.8s;
+}
+
+.balloon-group .b5{
+ font-size:32px;
+ top:15px;
+ left:43px;
+ animation-delay:1.3s;
+}
+
+.message{
+ max-width:650px;
+ margin:15px auto 0;
+ font-size:13px;
+ line-height:1.8;
+ color:#ddd;
+ text-align:center;
+}
+
+.footer{
+ font-size:11px;
+ margin-top:16px;
+ color:#c0c0c0;
+}
+
+/* =================================
+   FLOWERS - MIDNIGHT GARDEN
+================================= */
+
+#flowers{
+ background:
+  radial-gradient(ellipse at 50% 45%,#21151b 0%,#0b090b 55%,#000 100%);
+ padding:35px 15px;
+ overflow:hidden;
+}
+
+#flowers .flower-container{
+ position:relative;
+ width:100%;
+ max-width:1050px;
+ min-height:680px;
+ padding:65px 35px 30px;
+ overflow:hidden;
+
+ background:
+  radial-gradient(circle at center,#241820 0%,#100c10 65%,#080708 100%);
+
+ border:1px solid #a76b7c;
+ outline:1px solid #a76b7c55;
+ outline-offset:6px;
+
+ box-shadow:
+  0 0 25px #a76b7c22,
+  inset 0 0 45px #a76b7c12;
+}
+
+/* JUDUL */
+
+#flowers .flower-heading{
+ position:relative;
+ z-index:2;
+ text-align:center;
+ margin-bottom:35px;
+}
+
+#flowers .flower-label{
+ display:block;
+ color:#c58e9e;
+ font-size:10px;
+ letter-spacing:5px;
+ margin-bottom:12px;
+}
+
+#flowers .flower-heading h1{
+ font-family:'Great Vibes',cursive;
+ font-size:clamp(45px,7vw,70px);
+ font-weight:400;
+ color:#f5dce4;
+ text-shadow:0 0 20px #d98c9c55;
+}
+
+#flowers .flower-heading p{
+ color:#b9a1aa;
+ font-family:Georgia,serif;
+ font-size:13px;
+ font-style:italic;
+ letter-spacing:1px;
+ margin-top:5px;
+}
+
+/* LAYOUT */
+
+#flowers .flower-layout{
+ position:relative;
+ z-index:2;
+ display:grid;
+ grid-template-columns:1fr minmax(220px,340px) 1fr;
+ align-items:center;
+ gap:22px;
+ max-width:900px;
+ margin:auto;
+}
+
+/* QUOTES */
+
+#flowers .flower-quotes{
+ display:flex;
+ flex-direction:column;
+ gap:35px;
+}
+
+#flowers .flower-quote{
+ position:relative;
+ padding:13px 12px;
+ color:#eadce1;
+ font-family:Georgia,serif;
+ font-size:14px;
+ line-height:1.7;
+ font-style:italic;
+
+ background:linear-gradient(
+  135deg,
+  #ffffff08,
+  #d98c9c0a
+ );
+
+ border-left:1px solid #bd8194;
+ border-bottom:1px solid #ffffff18;
+
+ transition:.3s;
+}
+
+#flowers .flower-quote:hover{
+ transform:translateY(-5px);
+ background:#d98c9c15;
+ border-left-color:#f0b4c5;
+}
+
+#flowers .flower-quote span{
+ display:block;
+ color:#d99bad;
+ font-family:'Quicksand',sans-serif;
+ font-size:10px;
+ letter-spacing:3px;
+ font-style:normal;
+ margin-bottom:8px;
+}
+
+/* FOTO BUNGA */
+
+#flowers .flower-center{
+ text-align:center;
+}
+
+#flowers .flower-frame{
+ position:relative;
+ width:100%;
+ height:370px;
+ padding:15px;
+ border:1px solid #b47a8c;
+ background:#130e12;
+
+ box-shadow:
+  0 0 20px #d98c9c25,
+  inset 0 0 20px #d98c9c15;
+}
+
+#flowers .flower-photo{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ filter:drop-shadow(0 5px 15px #d98c9c22);
+}
+
+/* SUDUT BINGKAI */
+
+#flowers .flower-corner{
+ position:absolute;
+ color:#e5a9ba;
+ font-size:18px;
+ z-index:2;
+}
+
+#flowers .top-left{
+ top:4px;
+ left:5px;
+}
+
+#flowers .top-right{
+ top:4px;
+ right:5px;
+}
+
+#flowers .bottom-left{
+ bottom:4px;
+ left:5px;
+}
+
+#flowers .bottom-right{
+ bottom:4px;
+ right:5px;
+}
+
+/* CAPTION */
+
+#flowers .flower-caption{
+ margin-top:18px;
+ color:#e9bdca;
+ font-family:'Great Vibes',cursive;
+ font-size:27px;
+ letter-spacing:1px;
+}
+
+#flowers .flower-caption span{
+ color:#d98c9c;
+ font-size:16px;
+}
+
+/* FOOTER */
+
+#flowers .flower-footer{
+ position:relative;
+ z-index:2;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:15px;
+ margin-top:40px;
+}
+
+#flowers .flower-footer p{
+ color:#cba9b4;
+ font-family:Georgia,serif;
+ font-size:12px;
+ font-style:italic;
+ text-align:center;
+}
+
+#flowers .flower-line{
+ width:65px;
+ height:1px;
+ background:linear-gradient(90deg,transparent,#bd8194);
+}
+
+#flowers .flower-line:last-child{
+ transform:rotate(180deg);
+}
+
+/* BACK BUTTON */
+
+#flowers .flower-back{
+ position:absolute;
+ top:17px;
+ left:17px;
+ z-index:5;
+ padding:9px 17px;
+ color:#e8c6d0;
+ background:#ffffff08;
+ border:1px solid #a76b7c;
+ border-radius:30px;
+ font-family:'Quicksand',sans-serif;
+ font-size:10px;
+ letter-spacing:2px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+#flowers .flower-back:hover{
+ background:#a76b7c;
+ color:white;
+}
+
+/* BINTANG */
+
+#flowers .flower-star{
+ position:absolute;
+ color:#e6b2c1;
+ text-shadow:0 0 12px #e6b2c1;
+ animation:flowerTwinkle 2.5s ease-in-out infinite;
+}
+
+#flowers .fs1{
+ top:20%;
+ left:5%;
+ font-size:24px;
+}
+
+#flowers .fs2{
+ top:40%;
+ right:5%;
+ font-size:17px;
+ animation-delay:.5s;
+}
+
+#flowers .fs3{
+ bottom:20%;
+ left:8%;
+ font-size:20px;
+ animation-delay:1s;
+}
+
+#flowers .fs4{
+ top:12%;
+ right:12%;
+ font-size:15px;
+ animation-delay:.8s;
+}
+
+#flowers .fs5{
+ bottom:12%;
+ right:8%;
+ font-size:25px;
+ animation-delay:1.3s;
+}
+
+#flowers .fs6{
+ top:60%;
+ left:3%;
+ font-size:13px;
+ animation-delay:.4s;
+}
+
+@keyframes flowerTwinkle{
+ 0%,100%{
+  opacity:.35;
+  transform:scale(.8);
+ }
+ 50%{
+  opacity:1;
+  transform:scale(1.3);
+ }
+}
+
+/* =================================
+   SONG
+================================= */
+
+#song{
+ background:#080808;
+ position:relative;
+ overflow:hidden;
+}
+
+#song::before{
+ content:"";
+ position:fixed;
+ inset:6px 6%;
+ border:1px solid #292929;
+ pointer-events:none;
+ z-index:1;
+}
+
+#song .music-stars{
+ position:absolute;
+ inset:0;
+ pointer-events:none;
+}
+
+#song .star{
+ position:absolute;
+ color:#ddd;
+ text-shadow:0 0 10px #aaa;
+}
+
+#song .s1{top:22%;left:5%;font-size:30px}
+#song .s2{top:15%;right:7%;font-size:20px}
+#song .s3{top:30%;right:12%;font-size:25px}
+#song .s4{bottom:22%;left:14%;font-size:20px}
+#song .s5{bottom:24%;right:17%;font-size:30px}
+#song .s6{bottom:15%;left:39%;font-size:18px}
+
+#song .music-container{
+ position:relative;
+ width:100%;
+ max-width:1100px;
+ text-align:center;
+ z-index:2;
+ padding:35px 10px;
+}
+
+#song .music-title{
+ font-family:'Pacifico',cursive;
+ font-size:clamp(38px,6vw,65px);
+ font-weight:400;
+ margin-bottom:125px;
+ color:white;
+ text-shadow:0 0 15px #aaa,0 0 30px #555;
+}
+
+#song .music-display{
+ position:relative;
+ width:90%;
+ max-width:900px;
+ margin:auto;
+ height:250px;
+ display:flex;
+ align-items:center;
+}
+
+#song .photo-frame{
+ position:absolute;
+ left:20%;
+ right:0;
+ height:245px;
+ overflow:hidden;
+ border:3px solid #777;
+ outline:1px solid #333;
+ outline-offset:3px;
+ box-shadow:0 0 20px #222;
+}
+
+#song .photo-frame img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position:center;
+ filter:grayscale(100%);
+ transition:opacity .3s;
+}
+
+#song .vinyl{
+ position:absolute;
+ left:0;
+ top:50%;
+ transform:translateY(-50%);
+ width:335px;
+ height:335px;
+ border-radius:50%;
+ z-index:2;
+ background:repeating-radial-gradient(
+  circle,#090909 0px,#171717 3px,
+  #050505 5px,#222 7px,#080808 10px
+ );
+ box-shadow:0 0 15px #000,0 0 35px #111,inset 0 0 15px #333;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ animation:vinylRotate 5s linear infinite;
+ animation-play-state:paused;
+}
+
+#song .vinyl.playing{
+ animation-play-state:running;
+}
+
+#song .vinyl-center{
+ width:100px;
+ height:100px;
+ border-radius:50%;
+ background:radial-gradient(circle,#333,#050505);
+ border:5px solid #999;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:35px;
+ color:white;
+ box-shadow:0 0 10px #222;
+}
+
+@keyframes vinylRotate{
+ from{transform:translateY(-50%) rotate(0deg)}
+ to{transform:translateY(-50%) rotate(360deg)}
+}
+
+#song .player-area{
+ width:405px;
+ max-width:90%;
+ margin:38px auto 0;
+ position:relative;
+ left:7%;
+}
+
+#song .progress-bar{
+ height:4px;
+ width:100%;
+ background:#444;
+ border-radius:10px;
+ cursor:pointer;
+ position:relative;
+}
+
+#song .progress{
+ height:100%;
+ width:0%;
+ background:white;
+ border-radius:10px;
+ position:relative;
+}
+
+#song .progress::after{
+ content:"";
+ position:absolute;
+ right:-6px;
+ top:50%;
+ transform:translateY(-50%);
+ width:13px;
+ height:13px;
+ border-radius:50%;
+ background:white;
+}
+
+#song .time{
+ display:flex;
+ justify-content:space-between;
+ margin-top:17px;
+ font-size:12px;
+ color:#777;
+}
+
+#song .song-title{
+ font-size:29px;
+ font-weight:700;
+ letter-spacing:4px;
+ margin-top:-30px;
+}
+
+#song .artist{
+ font-size:13px;
+ color:#888;
+ letter-spacing:3px;
+ margin-top:8px;
+}
+
+#song .controls{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:38px;
+ margin-top:18px;
+}
+
+#song .control{
+ background:none;
+ border:none;
+ color:white;
+ font-size:25px;
+ cursor:pointer;
+ transition:.2s;
+}
+
+#song .control:hover{
+ transform:scale(1.15);
+ color:#aaa;
+}
+
+#song .play-button{
+ width:64px;
+ height:64px;
+ border-radius:50%;
+ border:none;
+ background:white;
+ color:black;
+ font-size:27px;
+ cursor:pointer;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ transition:.2s;
+}
+
+#song .play-button:hover{
+ transform:scale(1.08);
+}
+
+#song .status{
+ margin-top:15px;
+ font-size:12px;
+ color:#777;
+ letter-spacing:3px;
+}
+
+/* ANIMASI */
+
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-8px)}
+}
+
+.confetti{
+ position:fixed;
+ top:-12px;
+ width:7px;
+ height:10px;
+ border-radius:2px;
+ z-index:5;
+ pointer-events:none;
+ animation:fall linear infinite;
+ opacity:.8;
+}
+
+@keyframes fall{
+ to{transform:translateY(110vh) rotate(650deg)}
+}
+
+/* =================================
+   RESPONSIVE HP
+================================= */
+
+@media(max-width:650px){
+
+ .home-subtitle{
+  font-size:10px;
+  letter-spacing:4px;
+ }
+
+ .birthday-title{font-size:55px}
+
+ .home-message{
+  font-size:11px;
+  margin-bottom:55px;
+ }
+
+ .envelope{height:180px}
+ .letter-paper{height:145px}
+
+ .open-button{
+  margin-top:50px;
+  padding:12px 30px;
+  font-size:13px;
+ }
+
+ .ribbon-decoration{font-size:35px}
+
+ .gifts{gap:8px}
+
+ .gift{padding:20px 5px}
+
+ .gift .emoji{font-size:38px}
+
+ .gift p{font-size:10px}
+
+ .birthday-card{
+  padding:75px 10px 28px;
+ }
+
+ .main-content{gap:3px}
+
+ .photo-wrap{
+  width:clamp(110px,28vw,145px);
+  height:145px;
+ }
+
+ .balloon-group{
+  width:45px;
+  height:165px;
+ }
+
+ .balloon-group .b1{
+  font-size:31px;
+  left:10px;
+  top:-5px;
+ }
+
+ .balloon-group .b2{
+  font-size:25px;
+  left:0;
+  top:42px;
+ }
+
+ .balloon-group .b3{
+  font-size:28px;
+  left:22px;
+  top:85px;
+ }
+
+ .balloon-group .b4{
+  font-size:22px;
+  left:3px;
+  top:125px;
+ }
+
+ .balloon-group .b5{
+  font-size:24px;
+  left:29px;
+  top:12px;
+ }
+
+ .heading{
+  font-size:clamp(20px,5vw,30px);
+  letter-spacing:1px;
+ }
+
+ .message{font-size:11px}
+
+ /* FLOWERS HP */
+
+ #flowers{
+  padding:18px 12px;
+ }
+
+ #flowers .flower-container{
+  width:100%;
+  min-height:auto;
+  padding:65px 16px 25px;
+ }
+
+ #flowers .flower-heading{
+  margin-bottom:25px;
+ }
+
+ #flowers .flower-heading h1{
+  font-size:49px;
+ }
+
+ #flowers .flower-heading p{
+  font-size:11px;
+ }
+
+ #flowers .flower-label{
+  font-size:9px;
+  letter-spacing:3px;
+ }
+
+ #flowers .flower-layout{
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+ }
+
+ #flowers .flower-center{
+  grid-column:1 / 3;
+  grid-row:1;
+  width:min(100%,340px);
+  margin:auto;
+ }
+
+ #flowers .flower-frame{
+  height:330px;
+ }
+
+ #flowers .flower-quotes{
+  gap:12px;
+ }
+
+ #flowers .flower-quote{
+  font-size:11px;
+  padding:10px 8px;
+  line-height:1.6;
+ }
+
+ #flowers .flower-quote span{
+  font-size:9px;
+  margin-bottom:5px;
+ }
+
+ #flowers .flower-footer{
+  margin-top:28px;
+  gap:8px;
+ }
+
+ #flowers .flower-footer p{
+  font-size:10px;
+ }
+
+ #flowers .flower-line{
+  width:25px;
+ }
+
+ /* SONG HP */
+
+ #song .music-container{
+  padding:50px 5px;
+ }
+
+ #song .music-title{
+  margin-bottom:85px;
+  font-size:39px;
+ }
+
+ #song .music-display{
+  width:100%;
+  height:175px;
+ }
+
+ #song .photo-frame{
+  left:19%;
+  height:165px;
+  border-width:2px;
+ }
+
+ #song .vinyl{
+  width:190px;
+  height:190px;
+ }
+
+ #song .vinyl-center{
+  width:65px;
+  height:65px;
+  font-size:25px;
+  border-width:4px;
+ }
+
+ #song .player-area{
+  width:65%;
+  left:8%;
+  margin-top:35px;
+ }
+
+ #song .song-title{
+  font-size:23px;
+  margin-top:-25px;
+ }
+
+ #song .artist{font-size:11px}
+
+ #song .controls{gap:30px}
+
+ #song .play-button{
+  width:55px;
+  height:55px;
+  font-size:23px;
+ }
+
+ #song .control{font-size:22px}
+
+}
+
+/* HP KECIL */
+
+@media(max-width:500px){
+
+ #flowers .flower-container{
+  width:100%;
+ }
+
+}
+
+/* HP SANGAT KECIL */
+
+@media(max-width:380px){
+
+ #flowers .flower-frame{
+  height:275px;
+ }
+
+ #flowers .flower-quote{
+  font-size:10px;
+ }
+
+ #flowers .flower-heading h1{
+  font-size:42px;
+ }
+
+ #song .music-title{font-size:34px}
+
+ #song .vinyl{
+  width:160px;
+  height:160px;
+ }
+
+ #song .photo-frame{
+  left:17%;
+  height:145px;
+ }
+
+ #song .music-display{
+  height:155px;
+ }
+
+}
+.photo-age-wrap {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 65px;
+}
+
+.photo-age-wrap {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.photo-age {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 85px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 15px white, 0 0 30px white;
+  z-index: 5;
+}
+
+.photo-age.left {
+  left: 0;
+}
+
+.photo-age.right {
+  right: 0;
+}
+
+/* KARTU MENJADI LAPISAN UTAMA */
+.birthday-card {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 5 FOTO GANTUNG DI BELAKANG */
+.top-photos {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* KONTEN ULANG TAHUN DI DEPAN */
+.main-content,
+.message {
+  position: relative;
+  z-index: 2;
+}
+
+/* FOTO GANTUNG */
+.hanging-photo {
+  position: relative;
+  width: 90px;
+  height: 105px;
+  margin-top: 35px;
+  padding: 5px;
+  background: white;
+  border: 3px solid #f5b5ce;
+  border-radius: 9px;
+  box-shadow: 0 3px 12px rgba(255, 182, 193, .4);
+}
+
+.hanging-photo::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 35px;
+  background: #aaa;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+}
+
+.hanging-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+/* KARTU MENJADI LAPISAN UTAMA */
+.birthday-card {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 5 FOTO GANTUNG DI BELAKANG */
+.top-photos {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* KONTEN ULANG TAHUN DI DEPAN */
+.main-content,
+.message {
+  position: relative;
+  z-index: 2;
+}
+
+/* FOTO GANTUNG */
+.hanging-photo {
+  position: relative;
+  width: 90px;
+  height: 105px;
+  margin-top: 35px;
+  padding: 5px;
+  background: white;
+  border: 3px solid #f5b5ce;
+  border-radius: 9px;
+  box-shadow: 0 3px 12px rgba(255, 182, 193, .4);
+}
+
+.hanging-photo::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 35px;
+  background: #aaa;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+}
+
+.hanging-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.top-photos {
+  position: absolute !important;
+  top: -90px !important;
+  left: 12%;
+  right: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hanging-photo {
+  margin-top: 35px;
+}
+/* FOTO GANTUNG DI BELAKANG */
+.top-photos {
+  z-index: 1 !important;
+}
+
+/* TULISAN HBD DI DEPAN FOTO GANTUNG */
+.right-content {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* FOTO ABANG KECIL DAN ANGKA DI DEPAN */
+.photo-age-wrap,
+.left-content {
+  position: relative;
+  z-index: 10 !important;
+}
+
+/* =================================
+   PERBAIKAN TAMPILAN HP
+================================= */
+
+@media (max-width: 650px) {
+
+  /* KARTU ULANG TAHUN */
+  .page:has(.birthday-card) {
+    align-items: flex-start;
+    padding: 12px 8px;
+  }
+
+  .birthday-card {
+    width: 100%;
+    min-height: 0;
+    padding: 145px 10px 28px;
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* FOTO GANTUNG DI BAGIAN ATAS */
+  .top-photos {
+    position: absolute !important;
+    top: -30px !important;
+    left: 5px !important;
+    right: 5px !important;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 5px;
+    z-index: 1 !important;
+    pointer-events: none;
+  }
+
+  .hanging-photo {
+    width: 54px;
+    height: 72px;
+    flex-shrink: 1;
+    margin-top: 35px !important;
+    padding: 3px;
+    border: 2px solid #f5b5ce;
+  }
+
+  .hanging-photo:nth-child(2),
+  .hanging-photo:nth-child(4) {
+    margin-top: 15px !important;
+  }
+
+  .hanging-photo::before {
+    height: 35px;
+  }
+
+  /* KONTEN UTAMA DI DEPAN FOTO GANTUNG */
+  .main-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .photo-age-wrap,
+  .right-content {
+    position: relative;
+    z-index: 3;
+  }
+
+  .photo-wrap {
+    width: 27vw;
+    height: 135px;
+  }
+
+  .photo-age-wrap {
+    padding: 0 22px;
+  }
+
+  .photo-age {
+    font-size: 55px;
+  }
+
+  .balloon-group {
+    width: 35px;
+    height: 145px;
+  }
+
+  .heading {
+    font-size: clamp(17px, 4.8vw, 25px);
+    letter-spacing: 1px;
+    line-height: 1.35;
+  }
+
+  .message {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 20px;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+
+  .back {
+    z-index: 15;
+  }
+}

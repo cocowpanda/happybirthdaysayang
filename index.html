@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="75.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HOME -->
+<section class="page active" id="home">
+
+ <div class="home-decoration heart1">♡</div>
+ <div class="home-decoration heart2">♡</div>
+ <div class="home-decoration heart3">♥</div>
+ <div class="home-decoration heart4">♡</div>
+
+ <div class="ribbon-decoration ribbon-left">🎀</div>
+ <div class="ribbon-decoration ribbon-right">🎀</div>
+
+ <div class="home-content">
+
+  <div class="home-top-heart">♡</div>
+  <div class="home-subtitle"></div>
+
+  <h1 class="birthday-title">Happy Birthday Sayaangg! ♡</h1>
+
+  <p class="home-message">
+   A little surprise from ade ♡
+  </p>
+
+  <div class="envelope" id="envelope" onclick="openEnvelope()">
+   <div class="letter-paper">♡</div>
+   <div class="envelope-back"></div>
+   <div class="envelope-flap"></div>
+   <div class="envelope-front"></div>
+   <div class="envelope-ribbon">🎀</div>
+   <div class="envelope-heart">♡</div>
+  </div>
+
+  <button class="open-button" id="openButton" onclick="openEnvelope()">
+   OPEN LETTER ♡
+  </button>
+
+  <div class="home-bottom-heart">♡</div>
+
+ </div>
+</section>
+
+<!-- MENU -->
+<section class="page" id="menu">
+
+ <div class="card">
+
+  <div class="small">FOR YOU</div>
+  <h2>Pick one♡</h2>
+
+  <div class="gifts">
+
+   <div class="gift" onclick="showPage('letter')">
+    <span class="emoji">✉️</span>
+    <p>LETTER</p>
+   </div>
+
+   <div class="gift" onclick="showPage('flowers')">
+    <span class="emoji">💐</span>
+    <p>FLOWERS</p>
+   </div>
+
+   <div class="gift" onclick="showPage('song')">
+    <span class="emoji">🎵</span>
+    <p>SONG</p>
+   </div>
+
+  </div>
+
+  <p class="small">MADE WITH LOVE 🤍</p>
+
+ </div>
+</section>
+
+<!-- LETTER -->
+<section class="page" id="letter">
+
+ <main class="birthday-card">
+
+  <button class="back" onclick="showPage('menu')">← BACK</button>
+
+  <div class="icing"></div>
+
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+  <span class="drip"></span>
+
+  <section class="main-content">
+
+   <div class="balloon-group" aria-hidden="true">
+    <span class="b1"></span>
+    <span class="b2">🤍</span>
+    <span class="b3"></span>
+    <span class="b4">🩷</span>
+    <span class="b5">🤍</span>
+   </div>
+
+   <div class="photo-age-wrap">
+
+  <span class="photo-age left">1</span>
+
+  <div class="photo-wrap">
+    <img src="wow.png" alt="Foto ulang tahun">
+  </div>
+
+  <span class="photo-age right">9</span>
+
+</div>
+<!-- 5 FOTO DI BAGIAN PALING ATAS -->
+<div class="top-photos">
+  <div class="hanging-photo"><img src="3.jpeg" alt="Foto 2"></div>
+  <div class="hanging-photo"><img src="7.jpeg" alt="Foto 3"></div>
+  <div class="hanging-photo"><img src="i.jpeg" alt="Foto 4"></div>
+  <div class="hanging-photo"><img src="8.jpeg" alt="Foto 5"></div>
+  <div class="hanging-photo"><img src="6.jpeg" alt="Foto 6"></div>
+</div>
+
+</div>
+   <div class="balloon-group" aria-hidden="true">
+    <span class="b1"></span>
+    <span class="b2">🩷</span>
+    <span class="b3">🤍</span>
+    <span class="b4"></span>
+    <span class="b5">🤍</span>
+   </div>
+
+   <div class="right-content">
+    <h1 class="heading">HAPPY<br>BIRTHDAY<br>SAYANGG</h1>
+   </div>
+
+  </section>
+
+  <div class="message">
+   semoga diumur abang yang sekarang banyak hal baik yang datang dikehidupan abang,sehat selalu,bahagia,dilancarkan rezekinya,dan semua yang abang harapkan bisa tercapai satu persatu.<br>wish you all the best,love you🤍🤍
+  </div>
+
+  <div class="footer">
+   Made with 🤍 adee sayangg.
+  </div>
+
+ </main>
+</section>
+
+<!-- FLOWERS -->
+<section class="page" id="flowers">
+
+  <div class="flower-container">
+
+    <button class="flower-back" onclick="showPage('menu')">
+      ← BACK
+    </button>
+
+    <div class="flower-heading">
+      <span class="flower-label"></span>
+      <h1>Reminder Kecil Kecilan</h1>
+      <p>for someone who deserves beautiful things ♡</p>
+    </div>
+
+    <div class="flower-layout">
+
+      <div class="flower-quotes left-quotes">
+
+        <div class="flower-quote">
+          <span>01 ✧</span>
+          you deserve all the happiness this world has to offer
+        </div>
+
+        <div class="flower-quote">
+          <span>02 ✧</span>
+          never forget how special you are
+        </div>
+
+        <div class="flower-quote">
+          <span>03 ✧</span>
+          take your time.beautiful things need time to bloom
+        </div>
+
+      </div>
+
+      <div class="flower-center">
+
+        <div class="flower-frame">
+          <div class="flower-corner top-left">✿</div>
+          <div class="flower-corner top-right">✿</div>
+
+          <img src="bung.png" class="flower-photo" alt="Flowers for you">
+
+          <div class="flower-corner bottom-left">✿</div>
+          <div class="flower-corner bottom-right">✿</div>
+        </div>
+
+        <div class="flower-caption">
+        </div>
+
+      </div>
+
+      <div class="flower-quotes right-quotes">
+
+        <div class="flower-quote">
+          <span>04 ✧</span>
+          i hope life treats you gently and kindly
+        </div>
+
+        <div class="flower-quote">
+          <span>05 ✧</span>
+          may your days be filled with little reasons to smile
+        </div>
+
+        <div class="flower-quote">
+          <span>06 ✧</span>
+          keep growing, even when nobody sees it
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flower-footer">
+      <div class="flower-line"></div>
+      <p>heheheee ade kaya orang keren ♡</p>
+      <div class="flower-line"></div>
+    </div>
+
+    <span class="flower-star fs1">✧</span>
+    <span class="flower-star fs2">✦</span>
+    <span class="flower-star fs3">✧</span>
+    <span class="flower-star fs4">✦</span>
+    <span class="flower-star fs5">✧</span>
+    <span class="flower-star fs6">✦</span>
+
+  </div>
+
+</section>
+
+<!-- SONG -->
+<section class="page" id="song">
+
+ <div class="music-stars">
+  <span class="star s1">✦</span>
+  <span class="star s2">✦</span>
+  <span class="star s3">✧</span>
+  <span class="star s4">✧</span>
+  <span class="star s5">✦</span>
+  <span class="star s6">✧</span>
+ </div>
+
+ <div class="music-container">
+
+  <button class="back" onclick="showPage('menu')">← BACK</button>
+
+  <h1 class="music-title">To Abang</h1>
+
+  <div class="music-display">
+
+   <div class="photo-frame">
+    <img id="songPhoto" src="ngambek.jpeg" alt="Foto lagu">
+   </div>
+
+   <div class="vinyl" id="vinyl">
+    <div class="vinyl-center">♥</div>
+   </div>
+
+  </div>
+
+  <div class="player-area">
+
+   <div class="progress-bar" id="progressBar">
+    <div class="progress" id="progress"></div>
+   </div>
+
+   <div class="time">
+    <span id="currentTime">0:00</span>
+    <span id="duration">0:00</span>
+   </div>
+
+   <div class="song-title" id="songTitle">You!</div>
+   <div class="artist" id="songArtist">LANY</div>
+
+   <div class="controls">
+    <button class="control" onclick="prevSong()">⏮</button>
+    <button class="play-button" id="playBtn" onclick="togglePlay()">▶</button>
+    <button class="control" onclick="nextSong()">⏭</button>
+   </div>
+
+   <div class="status" id="status">PAUSED ♡</div>
+
+  </div>
+
+  <audio id="audio" preload="metadata"></audio>
+
+ </div>
+</section>
+
+<!-- JAVASCRIPT DIPANGGIL PALING BAWAH -->
+<script src="js.js"></script>
+
+</body>
+</html>
